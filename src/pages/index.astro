@@ -1,7 +1,99 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'
+import MainLayout from "../layouts/MainLayout.astro";
 ---
-<MainLayout title={'Marek Grabowski'}>
-	<h1>Astro</h1>
+
+<MainLayout title={"Marek Grabowski"}>
+	<section
+		class="relative isolate overflow-hidden bg-white px-6 py-8 sm:py-12 lg:px-8"
+	>
+		<div class="relative isolate overflow-hidden bg-white">
+			<!--py-16 sm:py-24 lg:py-32 -->
+			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-2">
+				<div
+					class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
+				>
+					<div class="flex">
+						<div class="m-auto">
+							<h1 class="text-4xl font-extrabold text-center">
+								<span
+									class="bg-gradient-to-r from-red-600 to-orange-600 text-transparent bg-clip-text"
+									>Hey there</span
+								> 👋
+							</h1>
+							<p class="mt-6 text-lg text-center">
+								I'm <span class="font-bold"
+									>Marek Grabowski</span
+								>, an ambitious undergraduate student pursuing a
+								degree in Computer Science. Technology has
+								always fascinated me, and I am wholeheartedly
+								dedicated to honing my skills in this dynamic
+								field. From a young age, I've been drawn to the
+								art of programming and problem-solving. This
+								website contains all of my CS, related projects
+								alongside my work in the AV/Video Productions
+								fields.
+							</p>
+						</div>
+					</div>
+					<div
+						class="mx-auto avatar transition ease-in-out hover:scale-[102%] block"
+					>
+						<img
+							class="h-96 w-96 rounded-2xl drop-shadow-lg"
+							src="images/profile_photo.jpeg"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-8 mt-12">
+				<h1 class="text-4xl font-bold text-center my-4">
+					My Areas of Knowledge
+				</h1>
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8"
+				>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						1
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						2
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						3
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						4
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						5
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						6
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						7
+					</div>
+					<div
+						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
+					>
+						8
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </MainLayout>
-		

@@ -1,9 +1,11 @@
+---
+---
 <nav class="bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="hidden md:block">
-                    <div class="ml-2 flex items-baseline space-x-4">
+                    <div class="ml-2 flex items-baseline space-x-4" >
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a
                             href="/"
@@ -69,7 +71,7 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden" id="mobile-menu">
+    <div class="md:hidden hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a
@@ -92,32 +94,27 @@
         </div>
     </div>
 </nav>
-
 <script>
-    // Get the current URL path
-    const path = window.location.pathname;
-
-    // Find the corresponding link in the navbar and add the "font-bold" class
-    const navbarLinks = document.querySelectorAll(
-        ".nav-link"
-    ) as NodeListOf<HTMLElement>;
-    navbarLinks.forEach((link: HTMLElement) => {
-        if (link.getAttribute("href") === path) {
-            link.classList.add("font-bold");
-        }
+    // Get the current page URL
+    const currentPageUrl = window.location.pathname;
+  
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+  
+    // Add the "bg-gray-900 text-white" class to the active page link
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPageUrl) {
+        link.classList.add('bg-gray-900', 'text-white');
+      }
     });
-
-    // Mobile menu toggle
-    const mobileMenuButton = document.querySelector(
-        ".mobile-menu-button"
-    ) as HTMLElement;
-    const mobileMenu = document.querySelector(".mobile-menu") as HTMLElement;
-
-    mobileMenuButton.addEventListener("click", () => {
-        const expanded =
-            mobileMenuButton.getAttribute("aria-expanded") === "true";
-
-        mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
-        mobileMenu.classList.toggle("hidden");
+  
+    // Toggle the mobile menu
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('#mobile-menu');
+  
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-</script>
+  </script>
+  
+  

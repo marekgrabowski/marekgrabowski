@@ -1,13 +1,10 @@
 ---
-title: "Test 1234532"
+title: "Website & EPortfolio"
 layout: '../../layouts/MainLayout.astro'
 draft: false
 ---
 
-# My Title
+# Website & EPortfolio
+Summer 2023
 
-### TEstweart8uq28394rujp
-
-testingsdeqrg8234781fgdsfgdsfg
-
-**Bold**
+This Website/EPortfolio is built on the Astro & Tailwind CSS frameworks and houses a collection of my CS projects & work, contact information and a blog.
