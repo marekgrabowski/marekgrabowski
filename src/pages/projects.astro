@@ -1,0 +1,14 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+
+const projects = await Astro.glob('./projects/*{md, mdx}')
+
+---
+<MainLayout title={'Projects'}>
+	<h1>Projects</h1>
+    <div>
+        <ul>
+            {projects.map(projects => <li><a href={projects.url}>{projects.frontmatter.title}</a></li>)}
+        </ul>    
+    </div>
+</MainLayout>
