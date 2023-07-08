@@ -1,0 +1,20 @@
+:root {
+    /* Gradients */
+--gradient-stop-1: var(--accent-light);
+--gradient-stop-2: var(--accent-regular);
+--gradient-stop-3: var(--accent-dark);
+--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
+--gradient-accent: linear-gradient(
+    150deg,
+    var(--gradient-stop-1),
+    var(--gradient-stop-2),
+    var(--gradient-stop-3)
+);
+--gradient-accent-orange: linear-gradient(
+    150deg,
+    #ca7879,
+    var(--accent-regular),
+    var(--accent-dark)
+);
+--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+}

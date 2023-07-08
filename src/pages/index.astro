@@ -1,12 +1,13 @@
 ---
+import Icon from "../components/Icon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title={"Marek Grabowski"}>
 	<section
-		class="relative isolate overflow-hidden bg-white px-6 py-8 sm:py-12 lg:px-8"
+		class="relative isolate overflow-hidden px-6 py-8 sm:py-12 lg:px-8"
 	>
-		<div class="relative isolate overflow-hidden bg-white">
+		<div class="relative isolate overflow-hidden">
 			<!--py-16 sm:py-24 lg:py-32 -->
 			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-2">
 				<div
@@ -14,14 +15,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 				>
 					<div class="flex">
 						<div class="m-auto">
-							<h1 class="text-4xl font-extrabold text-center">
+							<h1 class="text-5xl font-extrabold text-center">
 								<span
-									class="bg-gradient-to-r from-red-600 to-orange-600 text-transparent bg-clip-text"
+									class="bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
 									>Hey there</span
 								> 👋
 							</h1>
-							<p class="mt-6 text-lg text-center">
-								I'm <span class="font-bold"
+							<p class="mt-10 text-lg text-center">
+								I'm <span class="font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
 									>Marek Grabowski</span
 								>, an ambitious undergraduate student pursuing a
 								degree in Computer Science. Technology has
@@ -36,64 +37,166 @@ import MainLayout from "../layouts/MainLayout.astro";
 						</div>
 					</div>
 					<div
-						class="mx-auto avatar transition ease-in-out hover:scale-[102%] block"
+						class="mx-auto transition ease-in-out hover:scale-[102%] block drop-shadow-lg rounded-2xl"
 					>
+						<!--bg-gradient-to-r from-blue-600 to-purple-800  -->
 						<img
-							class="h-96 w-96 rounded-2xl drop-shadow-lg"
+							class="m-1 h-96 w-96 rounded-2xl"
 							src="images/profile_photo.jpeg"
 						/>
 					</div>
 				</div>
 			</div>
-			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-8 mt-12">
-				<h1 class="text-4xl font-bold text-center my-4">
-					My Areas of Knowledge
-				</h1>
+			<div
+				class="mx-auto max-w-7xl px-1 my-8 mt-12 rounded-xl py-1 border-2 border-gray-200"
+			>
+				<!-- bg-gradient-to-r from-blue-600 to-purple-800-->
 				<div
-					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8"
+					class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center rounded-xl"
 				>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						1
+					<div class="m-6">
+						<Icon
+							icon="terminal-window"
+							color="var(--accent-regular)"
+							size="2.5rem"
+							gradient
+						/>
+						<h2 class="font-bold text-3xl mt-2 mb-4">
+							Computer Science
+						</h2>
+						<p class="text-gray-800">
+							Experience in Web, Application, & Mobile Development
+						</p>
 					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						2
+					<div class="m-6">
+						<Icon
+							icon="microphone-stage"
+							color="var(--accent-regular)"
+							size="2.5rem"
+							gradient
+						/>
+						<h2 class="font-bold text-3xl mt-2 mb-4">
+							Audio Visual
+						</h2>
+						<p class="text-gray-800">
+							5+ years of experience in live sound, livestreaming,
+							and video production
+						</p>
 					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						3
-					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						4
-					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						5
-					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						6
-					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						7
-					</div>
-					<div
-						class="p-4 bg-gray-500 rounded-md flex items-center justify-center"
-					>
-						8
+					<div class="m-6">
+						<Icon
+							icon="strategy"
+							color="var(--accent-regular)"
+							size="2.5rem"
+							gradient
+						/>
+						<h2 class="font-bold text-3xl mt-2 mb-4">
+							Small Business
+						</h2>
+						<p class="text-gray-800">
+							Expert in providing solutions for small businesses,
+							from hardware, to software
+						</p>
 					</div>
 				</div>
 			</div>
+			<!--
+			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-8 mt-12">
+				<h1 class="text-4xl font-bold text-center mt-4 mb-8">
+					My Areas of Knowledge
+				</h1>
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center"
+				>
+					<div
+						class="h-full w-full p-1 rounded-md block items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">
+								Web Design and Development
+							</h1>
+							<ul class="">
+								<li>- HTML</li>
+								<li>- CSS</li>
+								<li>- Astro</li>
+								<li>- TailwindCSS</li>
+								<li>- Bootstrap</li>
+								<li>- Flask</li>
+								<li>- Webflow</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="h-full w-full p-1 rounded-md block items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">
+								Desktop Development
+							</h1>
+							<ul class="">
+								<li>- Java</li>
+								<li>- Python</li>
+								<li>- C</li>
+								<li>- Kotlin</li>
+								<li>- VS Code</li>
+								<li>- Eclipse</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">Live Sound</h1>
+							<ul class="">
+								<li>- X32/Wing</li>
+								<li>- QU/SQ</li>
+								<li>- Dante Certified</li>
+								<li>- Theatre, Bands, Vocalists</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">Live Video</h1>
+							<ul class="">
+								<li>- ATEM</li>
+								<li>- Tricaster</li>
+								<li>- OBS</li>
+								<li>- Streaming System Design</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">
+								Video Production & Editing
+							</h1>
+							<ul class="">
+								<li>- Adobe Premiere</li>
+								<li>- Adobe After Effects</li>
+								<li>- Davinci Resolve</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
+					>
+						<div class="h-full w-full bg-white m-auto p-4">
+							<h1 class="font-bold text-lg">IT Skills</h1>
+							<ul class="">
+								<li>- Small Buisness Networking</li>
+								<li>- Fleet Management, JAMF, Google Admin</li>
+								<li>- Fleet Hardware-level Repair</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>  -->
 		</div>
 	</section>
 </MainLayout>
