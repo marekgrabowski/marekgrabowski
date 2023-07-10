@@ -1,6 +1,10 @@
 ---
 import Icon from "../components/Icon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+const projects = await Astro.glob("./projects/*{md, mdx}");
+const filteredPosts = projects.filter((project) =>
+	project.frontmatter.tags?.includes(tag)
+);
 ---
 
 <MainLayout title={"Marek Grabowski"}>
@@ -38,13 +42,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 						</div>
 					</div>
 					<div
-						class="mx-auto transition ease-in-out hover:scale-[102%] block drop-shadow-lg rounded-2xl"
+						class="mx-auto hover:scale-[102%] block drop-shadow-lg rounded-2xl hoverImgEffect"
 					>
 						<!--bg-gradient-to-r from-blue-600 to-purple-800  -->
-						<img
-							class="m-1 lg:h-96 lg:w-96 aspect-square rounded-2xl"
-							src="images/profile_photo.jpeg"
-						/>
+						<a href="./resume">
+							<img
+								class="m-1 lg:h-96 lg:w-96 aspect-square rounded-2xl"
+								src="images/profile_photo.jpeg"
+							/>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -90,7 +96,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 					</div>
 					<div class="m-6">
 						<Icon
-							icon="strategy"
+							icon="buildings"
 							color="var(--accent-regular)"
 							size="2.5rem"
 							gradient
@@ -109,43 +115,29 @@ import MainLayout from "../layouts/MainLayout.astro";
 			</div>
 			<div class="mx-auto max-w-7xl px-1 my-8 mt-12">
 				<div>
-					<h1 class="text-4xl font-extrabold text-center">
+					<h1
+						class="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+					>
 						Featured Work
 					</h1>
 					<p class="mt-4 text-lg text-center">
 						Take a look below at some of my recent work
 					</p>
-					<div class="mx-auto p-2 flex flex-col items-center">
-						<div class="flex w-full relative justify-center">
-							<input
-								type="radio"
-								id="option0"
-								name="tabs"
-								class="appearance-none"
-								checked 
-							/>
-							<label
-								for="option0"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold md:text-lg sm:text-xs rounded-full py-2"
-								>All Work</label
-							>
-
+					<div class="mt-4 mx-auto p-2 flex items-center">
+						<div
+							class="flex w-full relative justify-center sm:flex-grow"
+						>
 							<input
 								type="radio"
 								id="option1"
 								name="tabs"
 								class="appearance-none"
+								checked
 							/>
 							<label
 								for="option1"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
-							>
-								<Icon
-									icon="terminal-window"
-									color="var(--accent-regular)"
-									size="2.5rem"
-									gradient
-								/></label
+								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold md:text-lg sm:text-xs rounded-full py-2 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+								>All</label
 							>
 
 							<input
@@ -159,7 +151,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
 							>
 								<Icon
-									icon="microphone-stage"
+									icon="terminal-window"
 									color="var(--accent-regular)"
 									size="2.5rem"
 									gradient
@@ -177,7 +169,25 @@ import MainLayout from "../layouts/MainLayout.astro";
 								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
 							>
 								<Icon
-									icon="strategy"
+									icon="microphone-stage"
+									color="var(--accent-regular)"
+									size="2.5rem"
+									gradient
+								/></label
+							>
+
+							<input
+								type="radio"
+								id="option4"
+								name="tabs"
+								class="appearance-none"
+							/>
+							<label
+								for="option4"
+								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
+							>
+								<Icon
+									icon="buildings"
 									color="var(--accent-regular)"
 									size="2.5rem"
 									gradient
@@ -185,110 +195,55 @@ import MainLayout from "../layouts/MainLayout.astro";
 							>
 
 							<div
-								class="w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full p-0 h-full bg-indigo-600 absolute transform transition-transform tabAnim"
+								class="w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full p-0 h-full bg-gray-200 absolute transform transition-transform tabAnim"
 							>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--
-			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-8 mt-12">
-				<h1 class="text-4xl font-bold text-center mt-4 mb-8">
-					My Areas of Knowledge
-				</h1>
-				<div
-					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center"
-				>
-					<div
-						class="h-full w-full p-1 rounded-md block items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">
-								Web Design and Development
-							</h1>
-							<ul class="">
-								<li>- HTML</li>
-								<li>- CSS</li>
-								<li>- Astro</li>
-								<li>- TailwindCSS</li>
-								<li>- Bootstrap</li>
-								<li>- Flask</li>
-								<li>- Webflow</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="h-full w-full p-1 rounded-md block items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">
-								Desktop Development
-							</h1>
-							<ul class="">
-								<li>- Java</li>
-								<li>- Python</li>
-								<li>- C</li>
-								<li>- Kotlin</li>
-								<li>- VS Code</li>
-								<li>- Eclipse</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">Live Sound</h1>
-							<ul class="">
-								<li>- X32/Wing</li>
-								<li>- QU/SQ</li>
-								<li>- Dante Certified</li>
-								<li>- Theatre, Bands, Vocalists</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">Live Video</h1>
-							<ul class="">
-								<li>- ATEM</li>
-								<li>- Tricaster</li>
-								<li>- OBS</li>
-								<li>- Streaming System Design</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">
-								Video Production & Editing
-							</h1>
-							<ul class="">
-								<li>- Adobe Premiere</li>
-								<li>- Adobe After Effects</li>
-								<li>- Davinci Resolve</li>
-							</ul>
-						</div>
-					</div>
-					<div
-						class="h-full w-full p-1 rounded-md flex items-center justify-center bg-gradient-to-r from-pink-300 to-orange-600 mx-auto transition ease-in-out hover:scale-[102%]"
-					>
-						<div class="h-full w-full bg-white m-auto p-4">
-							<h1 class="font-bold text-lg">IT Skills</h1>
-							<ul class="">
-								<li>- Small Buisness Networking</li>
-								<li>- Fleet Management, JAMF, Google Admin</li>
-								<li>- Fleet Hardware-level Repair</li>
-							</ul>
-						</div>
-					</div>
+				<div class="flex flex-row flex-wrap mb-4 justify-center">
+					{
+						projects.map((projects) => (
+							<>
+								<div class=" xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
+									<a
+										href={projects.url}
+										class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
+									>
+										<div class="relative pb-48 overflow-hidden">
+											<img
+												class="absolute inset-0 h-full w-full object-cover "
+												src={
+													projects.frontmatter.image
+														.url
+												}
+												alt={
+													projects.frontmatter.image
+														.alt
+												}
+											/>
+										</div>
+										<div class="p-4">
+											<span class="inline-block px-2 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+												{projects.frontmatter.tag}
+											</span>
+											<h2 class="mt-2 mb-2  font-bold">
+												{projects.frontmatter.title}
+											</h2>
+											<p class="text-sm">
+												{
+													projects.frontmatter
+														.description
+												}
+											</p>
+										</div>
+									</a>
+								</div>
+							</>
+						))
+					}
 				</div>
-			</div>  -->
+			</div>
 		</div>
 	</section>
 </MainLayout>
@@ -298,23 +253,49 @@ import MainLayout from "../layouts/MainLayout.astro";
 		z-index: -9;
 	}
 
-	#option0:checked ~ div {
+	#option1:checked ~ div {
 		--tw-translate-x: -150%;
 	}
 
-	#option1:checked ~ div {
+	#option2:checked ~ div {
 		--tw-translate-x: -50%;
 	}
 
-	#option2:checked ~ div {
+	#option3:checked ~ div {
 		--tw-translate-x: 50%;
 	}
 
-	#option3:checked ~ div {
+	#option4:checked ~ div {
 		--tw-translate-x: 150%;
 	}
-
-	#option4:checked ~ div {
-		--tw-translate-x: 250%;
+	.hoverImgEffect {
+		transition: all 0.3s ease-in-out;
 	}
 </style>
+
+<script>
+	// Get all the radio buttons and frontmatter items
+	const radioButtons =
+		document.querySelectorAll<HTMLInputElement>('input[name="tabs"]');
+	const frontmatterItems = document.querySelectorAll<HTMLElement>(
+		".category-all, .category-terminal, .category-microphone, .category-buildings"
+	);
+
+	// Add event listener to the radio buttons
+	radioButtons.forEach((radioButton) => {
+		radioButton.addEventListener("change", () => {
+			const selectedCategory = radioButton.id.replace("option", "");
+
+			// Show the frontmatter items that have a matching tag, hide the others
+			frontmatterItems.forEach((item) => {
+				const tag = item.querySelector(".inline-block")!.textContent;
+
+				if (tag === selectedCategory || selectedCategory === "1") {
+					item.classList.remove("hidden");
+				} else {
+					item.classList.add("hidden");
+				}
+			});
+		});
+	});
+</script>
