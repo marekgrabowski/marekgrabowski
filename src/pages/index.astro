@@ -124,33 +124,33 @@ const projects = (await getCollection("projects"))
         </div>
         <div class="">
 			<ul class="flex flex-row flex-wrap mb-4 justify-center">
-          {
-            projects.map((projects) => (
-              <li class="xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
-                  <a
-                    href={`/projects/${projects.slug}`}
-                    class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
-                  >
-                    <div class="relative pb-48 overflow-hidden">
-                      <img
-                        class="absolute inset-0 h-full w-full object-cover"
-                        src={projects.data.img}
-                        alt={projects.data.img_alt}
-                      />
-                    </div>
-                    <div class="p-4">
-                      <span class="inline-block px-2 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-                        {projects.data.tags}
-                      </span>
-                      <h2 class="mt-2 mb-2  font-bold">
-                        {projects.data.title}
-                      </h2>
-                      <p class="text-sm">{projects.data.description}</p>
-                    </div>
-                  </a>
-              <li/>
-            ))
-          }
+        {
+          projects.map((projects) => (
+            <>
+              <div class=" xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
+                <a
+                  href={`/projects/${projects.slug}`}
+                  class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
+                >
+                  <div class="relative pb-48 overflow-hidden">
+                    <img
+                      class="absolute inset-0 h-full w-full object-cover"
+                      src={projects.data.img}
+                      alt={projects.data.img_alt}
+                    />
+                  </div>
+                  <div class="p-4">
+                      {projects.data.tags.map((tag) => (
+                        <span class="inline-block px-2 mr-1 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs"> {tag}</span>
+                      ))}
+                    <h2 class="mt-2 mb-2  font-bold">{projects.data.title}</h2>
+                    <p class="text-sm">{projects.data.description}</p>
+                  </div>
+                </a>
+              </div>
+            </>
+          ))
+        }
 		  </ul>
         </div>
       </div>

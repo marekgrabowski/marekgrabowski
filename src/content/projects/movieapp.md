@@ -1,5 +1,5 @@
 ---
-title: Movie Reccomender App
+title: Movie Recomender App
 publishDate: 2023-05-01 00:00:00
 img: https://placehold.co/600x400
 img_alt: Placeholder
