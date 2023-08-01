@@ -24,3 +24,6 @@
 );
 --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 }
+.hoverImgEffect {
+    transition: all 0.3s ease-in-out;
+  }

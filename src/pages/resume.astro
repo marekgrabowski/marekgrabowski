@@ -2,6 +2,11 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title={"Marek Grabowski"}>
-    <h1>Test</h1>
+<MainLayout title={"Marek Grabowski Resume"}>
+  <div class="justify-center mx-auto max-w-7xl px-6 lg:px-8">
+    <h1 class="text-center my-8 py-4 text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text">Here's My Resume</h1>
+      <center class="block h-full w-full">
+      <embed  src="resume.pdf#toolbar=0" type="application/pdf" width="100%" height="1070">
+      </center>
+  </div>
 </MainLayout>

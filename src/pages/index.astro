@@ -1,301 +1,159 @@
 ---
 import Icon from "../components/Icon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-const projects = await Astro.glob("./projects/*{md, mdx}");
-const filteredPosts = projects.filter((project) =>
-	project.frontmatter.tags?.includes(tag)
-);
+
+import { getCollection } from "astro:content";
+
+const projects = (await getCollection("projects"))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 8);
 ---
 
 <MainLayout title={"Marek Grabowski"}>
-	<section
-		class="relative isolate overflow-hidden px-6 py-8 sm:py-12 lg:px-8"
-	>
-		<div class="relative isolate overflow-hidden">
-			<!--py-16 sm:py-24 lg:py-32 -->
-			<div class="mx-auto max-w-7xl px-6 lg:px-8 my-2">
-				<div
-					class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
-				>
-					<div class="flex">
-						<div class="m-auto">
-							<h1 class="text-5xl font-extrabold text-center">
-								<span
-									class="bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-									>Hey there</span
-								> 👋
-							</h1>
-							<p class="mt-10 text-lg text-center">
-								I'm <span
-									class="font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-									>Marek Grabowski</span
-								>, an ambitious undergraduate student pursuing a
-								degree in Computer Science. Technology has
-								always fascinated me, and I am wholeheartedly
-								dedicated to honing my skills in this dynamic
-								field. From a young age, I've been drawn to the
-								art of programming and problem-solving. This
-								website contains all of my CS, related projects
-								alongside my work in the AV/Video Productions
-								fields.
-							</p>
-						</div>
-					</div>
-					<div
-						class="mx-auto hover:scale-[102%] block drop-shadow-lg rounded-2xl hoverImgEffect"
-					>
-						<!--bg-gradient-to-r from-blue-600 to-purple-800  -->
-						<a href="./resume">
-							<img
-								class="m-1 lg:h-96 lg:w-96 aspect-square rounded-2xl"
-								src="images/profile_photo.jpeg"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div
-				class="mx-auto max-w-7xl px-1 my-8 mt-12 rounded-xl py-1 border-2 border-gray-200 drop-shadow-sm"
-			>
-				<!-- bg-gradient-to-r from-blue-600 to-purple-800-->
-				<div
-					class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center rounded-xl"
-				>
-					<div class="m-6">
-						<Icon
-							icon="terminal-window"
-							color="var(--accent-regular)"
-							size="2.5rem"
-							gradient
-						/>
-						<h2
-							class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-						>
-							Computer Science
-						</h2>
-						<p class="text-gray-800">
-							Experience in Web, Application, & Mobile Development
-						</p>
-					</div>
-					<div class="m-6">
-						<Icon
-							icon="microphone-stage"
-							color="var(--accent-regular)"
-							size="2.5rem"
-							gradient
-						/>
-						<h2
-							class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-						>
-							Audio Visual
-						</h2>
-						<p class="text-gray-800">
-							5+ years of experience in live sound, livestreaming,
-							and video production
-						</p>
-					</div>
-					<div class="m-6">
-						<Icon
-							icon="buildings"
-							color="var(--accent-regular)"
-							size="2.5rem"
-							gradient
-						/>
-						<h2
-							class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-						>
-							Small Business
-						</h2>
-						<p class="text-gray-800">
-							Expert in providing solutions for small businesses,
-							from hardware, to software
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="mx-auto max-w-7xl px-1 my-8 mt-12">
-				<div>
-					<h1
-						class="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-					>
-						Featured Work
-					</h1>
-					<p class="mt-4 text-lg text-center">
-						Take a look below at some of my recent work
-					</p>
-					<div class="mt-4 mx-auto p-2 flex items-center">
-						<div
-							class="flex w-full relative justify-center sm:flex-grow"
-						>
-							<input
-								type="radio"
-								id="option1"
-								name="tabs"
-								class="appearance-none"
-								checked
-							/>
-							<label
-								for="option1"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold md:text-lg sm:text-xs rounded-full py-2 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-								>All</label
-							>
-
-							<input
-								type="radio"
-								id="option2"
-								name="tabs"
-								class="appearance-none"
-							/>
-							<label
-								for="option2"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
-							>
-								<Icon
-									icon="terminal-window"
-									color="var(--accent-regular)"
-									size="2.5rem"
-									gradient
-								/></label
-							>
-
-							<input
-								type="radio"
-								id="option3"
-								name="tabs"
-								class="appearance-none"
-							/>
-							<label
-								for="option3"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
-							>
-								<Icon
-									icon="microphone-stage"
-									color="var(--accent-regular)"
-									size="2.5rem"
-									gradient
-								/></label
-							>
-
-							<input
-								type="radio"
-								id="option4"
-								name="tabs"
-								class="appearance-none"
-							/>
-							<label
-								for="option4"
-								class="cursor-pointer w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full py-2"
-							>
-								<Icon
-									icon="buildings"
-									color="var(--accent-regular)"
-									size="2.5rem"
-									gradient
-								/></label
-							>
-
-							<div
-								class="w-1/6 flex items-center justify-center truncate select-none font-semibold text-lg rounded-full p-0 h-full bg-gray-200 absolute transform transition-transform tabAnim"
-							>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="flex flex-row flex-wrap mb-4 justify-center">
-					{
-						projects.map((projects) => (
-							<>
-								<div class=" xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
-									<a
-										href={projects.url}
-										class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
-									>
-										<div class="relative pb-48 overflow-hidden">
-											<img
-												class="absolute inset-0 h-full w-full object-cover "
-												src={
-													projects.frontmatter.image
-														.url
-												}
-												alt={
-													projects.frontmatter.image
-														.alt
-												}
-											/>
-										</div>
-										<div class="p-4">
-											<span class="inline-block px-2 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs">
-												{projects.frontmatter.tag}
-											</span>
-											<h2 class="mt-2 mb-2  font-bold">
-												{projects.frontmatter.title}
-											</h2>
-											<p class="text-sm">
-												{
-													projects.frontmatter
-														.description
-												}
-											</p>
-										</div>
-									</a>
-								</div>
-							</>
-						))
-					}
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="relative isolate overflow-hidden px-6 py-8 sm:py-12 lg:px-8">
+    <div class="relative isolate overflow-hidden">
+      <!--py-16 sm:py-24 lg:py-32 -->
+      <div class="mx-auto max-w-7xl px-6 lg:px-8 my-2">
+        <div
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 sm:"
+        >
+          <div class="flex">
+            <div class="m-auto">
+              <h1 class="text-5xl font-extrabold text-center">
+                <span
+                  class="bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+                  >Hey there</span
+                > 👋
+              </h1>
+              <p class="mt-10 text-lg text-center">
+                I'm <span
+                  class="font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+                  >Marek Grabowski</span
+                >, an ambitious undergraduate student pursuing a degree in
+                Computer Science. Technology has always fascinated me, and I am
+                wholeheartedly dedicated to honing my skills in this dynamic
+                field. From a young age, I've been drawn to the art of
+                programming and problem-solving. This website contains all of my
+                CS, related projects alongside my work in the AV/Video
+                Productions fields.
+              </p>
+            </div>
+          </div>
+          <div
+            class="mx-auto hover:scale-[102%] block drop-shadow-lg rounded-2xl hoverImgEffect"
+          >
+            <!--bg-gradient-to-r from-blue-600 to-purple-800  -->
+            <a href="./resume">
+              <img
+                class="m-1 lg:h-96 lg:w-96 aspect-square rounded-2xl"
+                src="images/profile_photo.jpeg"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mx-auto max-w-7xl px-1 my-8 mt-12 rounded-xl py-1 border-2 border-gray-200 drop-shadow-sm"
+      >
+        <!-- bg-gradient-to-r from-blue-600 to-purple-800-->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center rounded-xl"
+        >
+          <div class="m-6">
+            <Icon
+              icon="terminal-window"
+              color="var(--accent-regular)"
+              size="2.5rem"
+              gradient
+            />
+            <h2
+              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+            >
+              Computer Science
+            </h2>
+            <p class="text-gray-800">
+              Experience in Web, Application, & Mobile Development
+            </p>
+          </div>
+          <div class="m-6">
+            <Icon
+              icon="microphone-stage"
+              color="var(--accent-regular)"
+              size="2.5rem"
+              gradient
+            />
+            <h2
+              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+            >
+              Audio Visual
+            </h2>
+            <p class="text-gray-800">
+              5+ years of experience in live sound, livestreaming, and video
+              production
+            </p>
+          </div>
+          <div class="m-6">
+            <Icon
+              icon="buildings"
+              color="var(--accent-regular)"
+              size="2.5rem"
+              gradient
+            />
+            <h2
+              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+            >
+              Small Business
+            </h2>
+            <p class="text-gray-800">
+              Expert in providing solutions for small businesses, from hardware,
+              to software
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto max-w-7xl px-1 my-8 mt-12">
+        <div>
+          <h1
+            class="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+          >
+            Featured Work
+          </h1>
+          <p class="mt-4 text-lg text-center">
+            Take a look below at some of my recent work
+          </p>
+        </div>
+        <div class="">
+			<ul class="flex flex-row flex-wrap mb-4 justify-center">
+          {
+            projects.map((projects) => (
+              <li class="xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
+                  <a
+                    href={`/projects/${projects.slug}`}
+                    class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
+                  >
+                    <div class="relative pb-48 overflow-hidden">
+                      <img
+                        class="absolute inset-0 h-full w-full object-cover"
+                        src={projects.data.img}
+                        alt={projects.data.img_alt}
+                      />
+                    </div>
+                    <div class="p-4">
+                      <span class="inline-block px-2 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+                        {projects.data.tags}
+                      </span>
+                      <h2 class="mt-2 mb-2  font-bold">
+                        {projects.data.title}
+                      </h2>
+                      <p class="text-sm">{projects.data.description}</p>
+                    </div>
+                  </a>
+              <li/>
+            ))
+          }
+		  </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>
-<style>
-	/* Not Responsive */
-	.tabAnim {
-		z-index: -9;
-	}
-
-	#option1:checked ~ div {
-		--tw-translate-x: -150%;
-	}
-
-	#option2:checked ~ div {
-		--tw-translate-x: -50%;
-	}
-
-	#option3:checked ~ div {
-		--tw-translate-x: 50%;
-	}
-
-	#option4:checked ~ div {
-		--tw-translate-x: 150%;
-	}
-	.hoverImgEffect {
-		transition: all 0.3s ease-in-out;
-	}
-</style>
-
-<script>
-	// Get all the radio buttons and frontmatter items
-	const radioButtons =
-		document.querySelectorAll<HTMLInputElement>('input[name="tabs"]');
-	const frontmatterItems = document.querySelectorAll<HTMLElement>(
-		".category-all, .category-terminal, .category-microphone, .category-buildings"
-	);
-
-	// Add event listener to the radio buttons
-	radioButtons.forEach((radioButton) => {
-		radioButton.addEventListener("change", () => {
-			const selectedCategory = radioButton.id.replace("option", "");
-
-			// Show the frontmatter items that have a matching tag, hide the others
-			frontmatterItems.forEach((item) => {
-				const tag = item.querySelector(".inline-block")!.textContent;
-
-				if (tag === selectedCategory || selectedCategory === "1") {
-					item.classList.remove("hidden");
-				} else {
-					item.classList.add("hidden");
-				}
-			});
-		});
-	});
-</script>

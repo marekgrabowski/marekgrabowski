@@ -1,0 +1,30 @@
+---
+title: Booqable Automatic Reminders
+publishDate: 2023-05-01 00:00:00
+img: /images/booqablereminders.jpg
+img_alt: Placeholder
+description: |
+  Designed and implemented an automatic email/text system
+  to remind customers of order information.
+tags:
+  - CS
+  - AV
+---
+
+Over the past few weeks I looked to solve a problem with our existing rental software solution, Booqable, at work. This software had no system in place in order to remind customers of their pickup date & time when orders where placed months in adavance. To cover this gap we where manually sending emails day of confirming pickup/drop off times, which I saw as wasted time as I believe this could be easily automated.
+
+## Research Phase
+Initally I tried to find a more commerical solution from Zapier & Make. Both of which didn't really solve this problem, as their implementation of the Booqable API was lackluster. Furthing my reserach I stumbled acrouse booqyy, pretty much what I was looking for, but I wasn't really able to justify the monthly cost, compared to having the first couple hundred automations free on Zapier and Make each month for us to implement it. From there I decided it was best to try to implement my own solution.
+
+## Toying with the Booqable API
+Through my reserach I disocved Booqable provided API access to all the data in a companies account, which was used to link to these 3rd party services, but could also be directly implemented by their customers in any way they want. At the time I was also looking to begin learning python, so I decided to use downtime at work & some free time to toy around with the API. The Restful API was fairly easy to work with and I quickly discoved how to parse & request the necessary data in order to get the customers name, email, order number, and pickup time, and order status (to see if the order was confirmed or not). From there I just had to figure out how to notify the customer.
+
+## Implementing the Google API
+There are multiple different ways to send an emaiil from a python script like smtp. But in order to simplify the ability for anyone to link their email account I decided to implement SSO through out google workplace accounts and directly interface with the Google gmail API in order to send emails, in addition to also being able to implement a custom calander for us to use in the future. I ended up implementing SSO through OAuth2, and locally caching the users token so we wouldnt have to reauthenticate for every email, and made sure that the token would automatically reauthenticate and generate a new one whenever the last one was expired. From there I designed HTML templetes which look similar to the ones we use in Booqable to send quotes and invoices and created a jninja templete in order to fill in any details inside of that email. In addition I implemented a rudementary text message system utlizing carriers email to sms services by appending the users phone number with a carrier defined domain in order to send an sms to the individual. This was done by defining a list of popular carrier's and finding the appropiate domain, and adding a custom field into booqable so whenever a customer is added to our system we collect their carrier.
+
+## Designing a Webs Interface
+In order for others to easily control these messages if anything ever broke. I deployed a flask websever locally which saves various paramaters to a text file utilized by the python code. This included the API key provided by booqable, the option to disable or enable the system, in addition to a time selector for when messages should go out, and a button to manually send emails to individuals picking up rentals today.
+
+## Deployment 
+As of writhing this this system has been sucessfully deployed on a local server and was been working without a problem for over a month. I plan to try to flesh this out further with any down time at work to create a more feature rich system to automate many menial tasks with our current rentals workflow.
+
