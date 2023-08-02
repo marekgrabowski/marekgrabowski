@@ -1,4 +1,5 @@
 ---
+import Icon from "../components/Icon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
@@ -10,12 +11,35 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="flex flex-row justify-between">
       <div>
         <h2 class="font-bold text-3xl text-blue-800">Marek Grabowski</h2>
-        <p class="font-normal text-md">
+        <p class="font-normal text-md text-gray-00">
           Hartford County, CT<br />marekgrabowski.net
         </p>
       </div>
-      <div class="mr-2">
-        <p class="">social media icon links</p>
+      <div class="mr-2 flex flex-row space-x-2">
+        <a href="https://github.com/marekgrabowski" target="_blank" rel="noopener noreferrer">
+          <Icon
+            icon="github-logo"
+            color="var(--accent-regular)"
+            size="2.5rem"
+            gradient
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/marekgrabski/" target="_blank" rel="noopener noreferrer">
+          <Icon
+            icon="linkedin-logo"
+            color="var(--accent-regular)"
+            size="2.5rem"
+            gradient
+          />
+        </a>
+        <a href="https://www.instagram.com/marekgrab_/" target="_blank" rel="noopener noreferrer">
+          <Icon
+            icon="instagram-logo"
+            color="var(--accent-regular)"
+            size="2.5rem"
+            gradient
+          />
+        </a>
       </div>
     </div>
     <hr class="my-2 border-2 rounded-md border-blue-800" />
