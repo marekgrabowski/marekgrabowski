@@ -1,9 +1,18 @@
 ---
 import Icon from "../components/Icon.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
 
 import { getCollection } from "astro:content";
+import { AVTech, CSTech, SBTech } from "../utils/data";
+import SkillsBadge from "../components/SkillsBadge.astro";
 
+interface BadgeProps {
+  name: string;
+  imgSrc: string;
+  altSrc: string;
+  link: string;
+}
 const projects = (await getCollection("projects"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
@@ -11,150 +20,148 @@ const projects = (await getCollection("projects"))
 ---
 
 <MainLayout title={"Marek Grabowski"}>
-  <section class="relative isolate overflow-hidden px-6 py-8 sm:py-12 lg:px-8">
-    <div class="relative isolate overflow-hidden">
-      <!--py-16 sm:py-24 lg:py-32 -->
-      <div class="mx-auto max-w-7xl px-6 lg:px-8 my-2">
-        <div
-          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 sm:"
-        >
-          <div class="flex">
-            <div class="m-auto">
-              <h1 class="text-5xl font-extrabold text-center">
-                <span
-                  class="bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-                  >Hey there</span
-                > 👋
-              </h1>
-              <p class="mt-10 text-lg text-center">
-                I'm <span
-                  class="font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-                  >Marek Grabowski</span
-                >, an ambitious undergraduate student pursuing a degree in
-                Computer Science. Technology has always fascinated me, and I am
-                wholeheartedly dedicated to honing my skills in this dynamic
-                field. From a young age, I've been drawn to the art of
-                programming and problem-solving. This website contains all of my
-                CS, related projects alongside my work in the AV/Video
-                Productions fields.
-              </p>
-            </div>
-          </div>
-          <div
-            class="mx-auto hover:scale-[102%] block drop-shadow-lg rounded-2xl hoverImgEffect"
-          >
-            <!--bg-gradient-to-r from-blue-600 to-purple-800  -->
-            <a href="./resume">
-              <img
-                class="m-1 lg:h-96 lg:w-96 aspect-square rounded-2xl"
-                src="images/profile_photo.jpeg"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mx-auto max-w-7xl px-1 my-8 mt-12 rounded-xl py-1 border-2 border-gray-200 drop-shadow-sm"
-      >
-        <!-- bg-gradient-to-r from-blue-600 to-purple-800-->
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-8 text-black text-center flex-wrap justify-items-center rounded-xl"
-        >
-          <div class="m-6">
-            <Icon
-              icon="terminal-window"
-              color="var(--accent-regular)"
-              size="2.5rem"
-              gradient
-            />
-            <h2
-              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-            >
-              Computer Science
-            </h2>
-            <p class="text-gray-800">
-              Experience in Web, Application, & Mobile Development
-            </p>
-          </div>
-          <div class="m-6">
-            <Icon
-              icon="microphone-stage"
-              color="var(--accent-regular)"
-              size="2.5rem"
-              gradient
-            />
-            <h2
-              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-            >
-              Audio Visual
-            </h2>
-            <p class="text-gray-800">
-              5+ years of experience in live sound, livestreaming, and video
-              production
-            </p>
-          </div>
-          <div class="m-6">
-            <Icon
-              icon="buildings"
-              color="var(--accent-regular)"
-              size="2.5rem"
-              gradient
-            />
-            <h2
-              class="font-bold text-3xl mt-2 mb-4 bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-            >
-              Small Business
-            </h2>
-            <p class="text-gray-800">
-              Expert in providing solutions for small businesses, from hardware,
-              to software
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="mx-auto max-w-7xl px-1 my-8 mt-12">
-        <div>
+  <section class="relative isolate overflow-hidden">
+    <!-- Header Introduction/Profile Image -->
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+      <div class="flex mx-auto gap-x-8 gap-y-16 flex-col sm:flex-row">
+        <div class="md:w-1/2 sm:w-full">
           <h1
-            class="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+            class="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
           >
-            Featured Work
+            Marek Grabowski
           </h1>
-          <p class="mt-4 text-lg text-center">
-            Take a look below at some of my recent work
+          <h2
+            class="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+          >
+            Undergraduate Computer Science Student
+          </h2>
+          <p class="mt-10 text-md">
+            Welcome to my corner of the internet! I'm an undergraduate student
+            studying Computer Science at Central Connecticut State University.
+            I'm currently exploring various aspects of the field. I also spend a
+            lot of time tinkering with AV systems, focusing in sound, as a live
+            sound engineer and video, primarly livestreaming but also video
+            production and editing.
           </p>
         </div>
-        <div class="">
-			<ul class="flex flex-row flex-wrap mb-4 justify-center">
-        {
-          projects.map((projects) => (
-            <>
-              <div class=" xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full p-4">
-                <a
-                  href={`/projects/${projects.slug}`}
-                  class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden hover:scale-[105%] hoverImgEffect"
-                >
-                  <div class="relative pb-48 overflow-hidden">
-                    <img
-                      class="absolute inset-0 h-full w-full object-cover"
-                      src={projects.data.img}
-                      alt={projects.data.img_alt}
-                    />
-                  </div>
-                  <div class="p-4">
-                      {projects.data.tags.map((tag) => (
-                        <span class="inline-block px-2 mr-1 py-1 leading-none bg-blue-200 text-blue-800 rounded-full font-semibold uppercase tracking-wide text-xs"> {tag}</span>
-                      ))}
-                    <h2 class="mt-2 mb-2  font-bold">{projects.data.title}</h2>
-                    <p class="text-sm">{projects.data.description}</p>
-                  </div>
-                </a>
-              </div>
-            </>
-          ))
-        }
-		  </ul>
-        </div>
+        <a
+          href="./resume"
+          class="mx-auto hover:scale-[102%] block drop-shadow-lg hoverImgEffect object-scale-down mb-4"
+        >
+          <img
+            class="m-1 h-72 aspect-square rounded-2xl"
+            src="images/profile_photo.jpeg"
+          />
+        </a>
       </div>
     </div>
+    <!-- Areas of Interests -->
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+      <h2
+        class="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text mb-6 text-center"
+      >
+        Areas of Interest
+      </h2>
+
+      <h3
+        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
+      >
+        Computer Science
+      </h3>
+      <p class="text-md font-normal">
+        I'm actively toying around with different parts of this vast field both
+        in and outside of class. Here are some of my most recent and favorite
+        langauges, technologies & frameworks:
+      </p>
+      <!-- Skills Badge Table -->
+      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+        {
+          CSTech.map((tech: BadgeProps) => (
+        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
+            <a href={tech.link} class="cursor-pointer text-black">
+              <SkillsBadge {...tech} />
+            </a>
+            </div>
+          ))
+        }
+      </div>
+      <h3
+        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
+      >
+        Audio Visual
+      </h3>
+      <p class="text-md font-normal">
+        I've been heavily interested in the AV field since high school, in the
+        past few years I've spent plently of time learning, developing skills,
+        and actively applying my skills in these areas, technologies, and tools:
+      </p>
+      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+        {
+          AVTech.map((tech: BadgeProps) => (
+        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
+            <a href={tech.link} class="cursor-pointer text-black">
+              <SkillsBadge {...tech} />
+            </a>
+            </div>
+          ))
+        }
+      </div>
+      <h3
+        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
+      >
+        Small Business Solutions
+      </h3>
+      <p class="text-md font-normal">
+        With my interest in technology I've developed deep technology-related
+        problem solving skills. This allows me to efficently put together
+        solutions for small local businesses & organizations in the folowing
+        areas:
+      </p>
+      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+        {
+          SBTech.map((tech: BadgeProps) => (
+        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
+            <a href={tech.link} class="cursor-pointer text-black">
+              <SkillsBadge {...tech} />
+            </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <!-- Featured Work, needs to be reworked to have each card as a componenet... -->
+    <div class="mx-auto max-w-6xl px-1 my-8 mt-12">
+      <div>
+        <h1
+          class="text-3xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+        >
+          Featured Work
+        </h1>
+        <p class="mt-4 text-lg text-center">
+          Take a look below at some of my recent work
+        </p>
+      </div>
+      <div>
+        <ul class="flex flex-row flex-wrap mb-4 justify-center">
+          {
+            projects.map((projects) => (
+              <>
+                <BlogCard
+                  title={projects.data.title}
+                  description={projects.data.description}
+                  date={projects.data.publishDate}
+                  slug={projects.slug}
+                  img={projects.data.img}
+                  img_alt={projects.data.img_alt}
+                  tags={projects.data.tags}
+                />
+              </>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <!-- Testing -->
+    <div></div>
   </section>
 </MainLayout>
