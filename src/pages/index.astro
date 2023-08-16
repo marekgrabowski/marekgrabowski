@@ -57,15 +57,11 @@ const projects = (await getCollection("projects"))
     </div>
     <!-- Areas of Interests -->
     <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
-      <h2
-        class="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text mb-6 text-center"
-      >
+      <h2 class="text-3xl font-extrabold text-blue-600 mb-6">
         Areas of Interest
       </h2>
 
-      <h3
-        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
-      >
+      <h3 class="text-2xl font-extrabold text-blue-600 my-2">
         Computer Science
       </h3>
       <p class="text-md font-normal">
@@ -74,41 +70,39 @@ const projects = (await getCollection("projects"))
         langauges, technologies & frameworks:
       </p>
       <!-- Skills Badge Table -->
-      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+      <div
+        class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2"
+      >
         {
           CSTech.map((tech: BadgeProps) => (
-        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
-            <a href={tech.link} class="cursor-pointer text-black">
-              <SkillsBadge {...tech} />
-            </a>
+            <div class="md:w-1/3 xs:w-full w-1/2 px-4 py-2">
+              <a href={tech.link} class="cursor-pointer text-black">
+                <SkillsBadge {...tech} />
+              </a>
             </div>
           ))
         }
       </div>
-      <h3
-        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
-      >
-        Audio Visual
-      </h3>
+      <h3 class="text-2xl font-extrabold text-blue-600 my-2">Audio Visual</h3>
       <p class="text-md font-normal">
         I've been heavily interested in the AV field since high school, in the
         past few years I've spent plently of time learning, developing skills,
         and actively applying my skills in these areas, technologies, and tools:
       </p>
-      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+      <div
+        class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2"
+      >
         {
           AVTech.map((tech: BadgeProps) => (
-        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
-            <a href={tech.link} class="cursor-pointer text-black">
-              <SkillsBadge {...tech} />
-            </a>
+            <div class="md:w-1/3 xs:w-full w-1/2 px-4 py-2">
+              <a href={tech.link} class="cursor-pointer text-black">
+                <SkillsBadge {...tech} />
+              </a>
             </div>
           ))
         }
       </div>
-      <h3
-        class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text my-2"
-      >
+      <h3 class="text-2xl font-extrabold text-blue-600 my-2">
         Small Business Solutions
       </h3>
       <p class="text-md font-normal">
@@ -117,30 +111,26 @@ const projects = (await getCollection("projects"))
         solutions for small local businesses & organizations in the folowing
         areas:
       </p>
-      <div class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto p-2">
+      <div
+        class="flex items-center max-w-3xl m-auto flex-wrap overflow-auto p-2"
+      >
         {
           SBTech.map((tech: BadgeProps) => (
-        <div class="md:w-1/3 sm:w-1/2 xs:w-full px-4 py-2">
-            <a href={tech.link} class="cursor-pointer text-black">
-              <SkillsBadge {...tech} />
-            </a>
+            <div class="md:w-1/3 xs:w-full w-1/2 px-4 py-2">
+              <a href={tech.link} class="cursor-pointer text-black">
+                <SkillsBadge {...tech} />
+              </a>
             </div>
           ))
         }
       </div>
     </div>
     <!-- Featured Work, needs to be reworked to have each card as a componenet... -->
-    <div class="mx-auto max-w-6xl px-1 my-8 mt-12">
-      <div>
-        <h1
-          class="text-3xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
-        >
-          Featured Work
-        </h1>
-        <p class="mt-4 text-lg text-center">
-          Take a look below at some of my recent work
-        </p>
-      </div>
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+      <h1 class="text-3xl font-extrabold text-blue-600 my-2">Featured Work</h1>
+      <p class="mt-4 text-lg my-2">
+        Take a look below at some of my recent work
+      </p>
       <div>
         <ul class="flex flex-row flex-wrap mb-4 justify-center">
           {

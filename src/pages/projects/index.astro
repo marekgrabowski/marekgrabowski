@@ -12,18 +12,18 @@ const projects = (await getCollection("projects"))
 ---
 
 <MainLayout title={"Projects"}>
-  <div class="mx-auto max-w-7xl px-1 my-8 mt-12">
+  <div class="mx-auto max-w-6xl">
     <div class="">
       <h1
-        class="text-4xl py-4 font-extrabold text-center bg-gradient-to-r from-blue-600 to-purple-800 text-transparent bg-clip-text"
+        class="text-4xl mb-4 font-extrabold text-blue-600"
       >
         My Projects
       </h1>
-      <p class="mt-4 text-lg text-center">
+      <p class="mt-4 text-lg">
         Here are some of my recent projects over the past few years
       </p>
     </div>
-    <div class="flex flex-row flex-wrap mb-4 justify-center">
+    <div class="flex flex-row mb-4 justify-center">
       {
         projects.map((projects) => (
           <>
