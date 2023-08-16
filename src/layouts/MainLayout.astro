@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 import '../styles/global.css'
 
@@ -12,10 +13,11 @@ const {title} = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-auto bg-no-repeat " style="background-image: url('images/bg-main-light.jpg');">
+	<body class="bg-auto bg-gray-100">
 		<NavBar/>
         <section class="container--main">
             <slot/>
         </section>
 	</body>
+	<Footer/>
 </html>
