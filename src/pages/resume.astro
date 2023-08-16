@@ -11,12 +11,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="flex flex-row justify-between">
       <div>
         <h2 class="font-bold text-3xl text-blue-600">Marek Grabowski</h2>
-        <p class="font-normal text-md text-gray-00">
+        <p class="font-normal text-md text-gray-600 dark:text-gray-200">
           Hartford County, CT<br />marekgrabowski.net
         </p>
       </div>
       <div class="mr-2 flex flex-row space-x-2">
-        <a href="https://github.com/marekgrabowski" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/marekgrabowski" target="_blank" rel="noopener noreferrer" aria-label="Marek's Github"></a>
           <Icon
             icon="github-logo"
             color="var(--accent-regular)"
@@ -24,7 +24,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             gradient
           />
         </a>
-        <a href="https://www.linkedin.com/in/marekgrabski/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/marekgrabski/" target="_blank" rel="noopener noreferrer" aria-label="Marek's LinkedIn">
           <Icon
             icon="linkedin-logo"
             color="var(--accent-regular)"
@@ -32,7 +32,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             gradient
           />
         </a>
-        <a href="https://www.instagram.com/marekgrab_/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/marekgrab_/" target="_blank" rel="noopener noreferrer" aria-label="Marek's Github">
           <Icon
             icon="instagram-logo"
             color="var(--accent-regular)"
@@ -43,7 +43,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
     </div>
     <hr class="my-2 border-2 rounded-md border-blue-600" />
-    <p class="font-normal text-lg text-gray-700">
+    <p class="font-normal text-lg text-gray-700 dark:text-gray-100">
       Undergrad computer science student seeking an internship opportunity to
       apply classroom knowledge to real-world projects and gain valuable
       industry experience. Completed 36 hours of major related course work
@@ -53,22 +53,22 @@ import MainLayout from "../layouts/MainLayout.astro";
     </p>
     <hr class="my-2 border-2 rounded-md border-blue-600" />
     <h2 class="font-bold text-2xl text-blue-600 mb-2">Education</h2>
-    <h3 class="font-semibold text-xl text-gray-700">
+    <h3 class="font-semibold text-xl text-gray-700 dark:text-gray-100">
       Central Connecticut State University,<span
-        class="text-lg text-gray-500 font-normal"
+        class="text-lg text-gray-600 dark:text-gray-200 font-normal"
       >
         New Britain CT
       </span>
     </h3>
-    <h4 class="text-md text-gray-500 font-normal mb-1">
+    <h4 class="text-md text-gray-600 dark:text-gray-200 font-normal mb-1">
       August 2021 - May 2024 (Expected)
     </h4>
-    <p class="text-lg text-gray-700 font-normal indent-6">
+    <p class="text-lg text-gray-700 dark:text-gray-100 font-normal indent-6">
       B.S of Computer Science (Honors) GPA: 3.5/4
     </p>
     <h2 class="font-bold text-2xl text-blue-600 mb-2 mt-1">Skills</h2>
     <div class="indent-6">
-      <ul class="list-disc list-inside text-lg">
+      <ul class="list-disc list-inside text-lg text-black dark:text-white">
         <li>Excellent written and verbal communication skills</li>
         <li>Strong problem solving & teamwork skills</li>
         <li>
@@ -83,16 +83,16 @@ import MainLayout from "../layouts/MainLayout.astro";
       </ul>
     </div>
     <h2 class="font-bold text-2xl text-blue-600 mb-1 mt-1">Employment</h2>
-    <h3 class="font-bold text-xl text-gray-700 mt-1">
+    <h3 class="font-bold text-xl text-gray-700 dark:text-gray-100 mt-1">
       Rentals Coordinator/Technician,<span
-        class="text-lg text-gray-500 font-normal"
+        class="text-lg text-gray-600 dark:text-gray-200 font-normal"
       >
         - CMI Sound Systems, Newington, CT
       </span>
     </h3>
-    <h4 class="text-md text-gray-500 font-normal mb-1">May 2021 - Present</h4>
+    <h4 class="text-md text-gray-600 dark:text-gray-200 font-normal mb-1">May 2021 - Present</h4>
     <div class="indent-6 mb-2">
-      <ul class="list-disc list-inside text-lg">
+      <ul class="list-disc list-inside text-lg text-black dark:text-white">
         <li>
           Researched and implemented new rental, inventory, and online booking
           systems streamlining operations.
@@ -107,18 +107,18 @@ import MainLayout from "../layouts/MainLayout.astro";
         </li>
       </ul>
     </div>
-    <h3 class="font-bold text-xl text-gray-700 mt-1">
+    <h3 class="font-bold text-xl text-gray-700 dark:text-gray-100 mt-1">
       Family Communications Assistant,<span
-        class="text-lg text-gray-500 font-normal"
+        class="text-lg text-gray-600 dark:text-gray-200 font-normal"
       >
         - Berlin Board of Education, Berlin, CT
       </span>
     </h3>
-    <h4 class="text-md text-gray-500 font-normal mb-1">
+    <h4 class="text-md text-gray-600 dark:text-gray-200 font-normal mb-1">
       August 2021 - May 2022
     </h4>
     <div class="indent-6 mb-2">
-      <ul class="list-disc list-inside text-lg">
+      <ul class="list-disc list-inside text-lg text-black dark:text-white">
         <li>
           Organized the student Broadcasting Club and ensured the success of
           sophisticated livestreams by effectively communicating and delegating
@@ -133,16 +133,16 @@ import MainLayout from "../layouts/MainLayout.astro";
         </li>
       </ul>
     </div>
-    <h3 class="font-bold text-xl text-gray-700 mt-1">
-      IT/AV Assistant,<span class="text-lg text-gray-500 font-normal">
+    <h3 class="font-bold text-xl text-gray-700 dark:text-gray-100 mt-1">
+      IT/AV Assistant,<span class="text-lg text-gray-600 dark:text-gray-200 font-normal">
         - Berlin Board of Education, Berlin, CT
       </span>
     </h3>
-    <h4 class="text-md text-gray-500 font-normal mb-1">
+    <h4 class="text-md text-gray-600 dark:text-gray-200 font-normal mb-1">
       June 2019 - August 2021
     </h4>
     <div class="indent-6 mb-6">
-      <ul class="list-disc list-inside text-lg">
+      <ul class="list-disc list-inside text-lg text-black dark:text-white">
         <li>
           Effectively split tasks as a part of a student worker team inorder to
           efficiently complete IT work in a timely fashion with little oversight

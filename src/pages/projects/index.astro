@@ -1,9 +1,7 @@
 ---
 import BlogCard from "../../components/BlogCard.astro";
-import MainLayout from "../../layouts/MainLayout.astro"; 
+import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
-
-
 
 const projects = (await getCollection("projects"))
   .filter((post) => !post.data.draft)
@@ -13,34 +11,30 @@ const projects = (await getCollection("projects"))
 
 <MainLayout title={"Projects"}>
   <section class="relative isolate overflow-hidden">
-  <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
-    <div class="">
-      <h1
-        class="text-4xl mb-4 font-extrabold text-blue-600"
-      >
-        My Projects
-      </h1>
-      <p class="mt-4 text-lg">
-        Here are some of my recent projects over the past few years
-      </p>
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 text-black dark:text-white">
+      <div class="">
+        <h1 class="text-4xl mb-4 font-extrabold text-blue-600">My Projects</h1>
+        <p class="mt-4 text-lg">
+          Here are some of my recent projects over the past few years
+        </p>
+      </div>
+      <div class="flex flex-row flex-wrap mb-4 justify-center">
+        {
+          projects.map((projects) => (
+            <>
+              <BlogCard
+                title={projects.data.title}
+                description={projects.data.description}
+                date={projects.data.publishDate}
+                slug={projects.slug}
+                img={projects.data.img}
+                img_alt={projects.data.img_alt}
+                tags={projects.data.tags}
+              />
+            </>
+          ))
+        }
+      </div>
     </div>
-    <div class="flex flex-row flex-wrap mb-4 justify-center">
-      {
-        projects.map((projects) => (
-          <>
-          <BlogCard
-              title={projects.data.title}
-              description={projects.data.description}
-              date={projects.data.publishDate}
-              slug={projects.slug}
-              img={projects.data.img}
-              img_alt={projects.data.img_alt}
-              tags={projects.data.tags}
-            />
-          </>
-        ))
-      }
-    </div>
-  </div>
-</section>
+  </section>
 </MainLayout>

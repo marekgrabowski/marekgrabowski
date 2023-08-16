@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import profilephoto from "../assets/images/profile_photo.jpeg"
 import { AVTech, CSTech, SBTech } from "../utils/data";
 import Icon from "../components/Icon.astro";
+import SkillsBadgeNoArrow from "../components/SkillsBadgeNoArrow.astro";
 
 interface BadgeProps {
   name: string;
@@ -20,10 +21,10 @@ const projects = (await getCollection("projects"))
   .slice(0, 4);
 ---
 
-<MainLayout title={"Marek Grabowski"}>
+<MainLayout title={"Marek Grabowski"} description={"Hi I'm Marek Grabowski an undergraduate student studying Computer Science at Central Connecticut State University. I'm currently exploring various aspects of the field. I also spend a lot of time tinkering with AV systems, focusing in sound, as a live sound engineer and video, primarly livestreaming but also video production and editing."}>
   <section class="relative isolate overflow-hidden">
     <!-- Header Introduction/Profile Image -->
-    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 text-black dark:text-white">
       <div class="flex mx-auto gap-x-8 gap-y-16 flex-col md:flex-row">
         <div class="md:w-1/2 sm:w-full">
           <h1
@@ -60,7 +61,7 @@ const projects = (await getCollection("projects"))
       </div>
     </div>
     <!-- Areas of Interests -->
-    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 mb-8">
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 mb-8 text-black dark:text-white">
       <h2 class="text-3xl font-extrabold text-blue-600 mb-6">
         Areas of Interest
       </h2>
@@ -120,17 +121,15 @@ const projects = (await getCollection("projects"))
         <!-- Skills Badge Table -->
         {
           SBTech.map((tech: BadgeProps) => (
-            <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2">
-              <a href={tech.link} class="cursor-pointer text-black">
-                <SkillsBadge {...tech} />
-              </a>
+            <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2 text-black">
+                <SkillsBadgeNoArrow {...tech} />
             </div>
           ))
         }
       </div>
     </div>
     <!-- Featured Work, needs to be reworked to have each card as a componenet... -->
-    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 text-black dark:text-white">
       <h1 class="text-3xl font-extrabold text-blue-600 my-2">Featured Work</h1>
       <p class="mt-4 text-lg my-2">
         Take a look below at some of my recent work
@@ -155,14 +154,13 @@ const projects = (await getCollection("projects"))
     <!-- Contact -->
     <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
       <div class="flex flex-row items-center justify-center">
-      <h2 class="text-xl font-extrabold text-blue-600 my-2 mr-4">Contact Me!
-      </h2>
-      <a href="mailto:marek@marekgrabowski.net">
-        <div class="hover:translate-x-1 hover:-translate-y-1 duration-500 hover:scale-105 -translate-x-1 translate-y-1">
-      <Icon icon="paper-plane-tilt" color="blue" size="2rem" />
-    </div>
-    </a>
-    </div>
+        <h2 class="text-xl font-extrabold text-blue-600 my-2 mr-4">Contact Me!</h2>
+        <a href="mailto:marek@marekgrabowski.net" aria-label="Email Marek">
+          <div class="hover:translate-x-1 hover:-translate-y-1 duration-500 hover:scale-105 -translate-x-1 translate-y-1">
+            <Icon icon="paper-plane-tilt" color="blue" size="2rem" />
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 </MainLayout>
