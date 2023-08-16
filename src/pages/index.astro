@@ -11,7 +11,7 @@ interface BadgeProps {
   name: string;
   imgSrc: string;
   altSrc: string;
-  link: string;
+  link?: string;
 }
 const projects = (await getCollection("projects"))
   .filter((post) => !post.data.draft)
@@ -56,7 +56,7 @@ const projects = (await getCollection("projects"))
       </div>
     </div>
     <!-- Areas of Interests -->
-    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
+    <div class="m-auto max-w-6xl px-6 lg:px-8 my-2 mb-8">
       <h2 class="text-3xl font-extrabold text-blue-600 mb-6">
         Areas of Interest
       </h2>
@@ -64,7 +64,7 @@ const projects = (await getCollection("projects"))
       <h3 class="text-2xl font-extrabold text-blue-600 my-2">
         Computer Science
       </h3>
-      <p class="text-md font-normal">
+      <p class="text-md font-normal mb-4">
         I'm actively toying around with different parts of this vast field both
         in and outside of class. Here are some of my most recent and favorite
         langauges, technologies & frameworks:
@@ -84,11 +84,12 @@ const projects = (await getCollection("projects"))
         }
       </div>
       <h3 class="text-2xl font-extrabold text-blue-600 my-2">Audio Visual</h3>
-      <p class="text-md font-normal">
+      <p class="text-md font-normal mb-4">
         I've been heavily interested in the AV field since high school, in the
         past few years I've spent plently of time learning, developing skills,
         and actively applying my skills in these areas, technologies, and tools:
       </p>
+      <!-- Skills Badge Table -->
       <div
         class="flex flex-row items-center max-w-3xl m-auto flex-wrap overflow-auto"
       >
@@ -105,7 +106,7 @@ const projects = (await getCollection("projects"))
       <h3 class="text-2xl font-extrabold text-blue-600 my-2">
         Small Business Solutions
       </h3>
-      <p class="text-md font-normal">
+      <p class="text-md font-normal mb-4">
         With my interest in technology I've developed deep technology-related
         problem solving skills. This allows me to efficently put together
         solutions for small local businesses & organizations in the folowing
@@ -114,6 +115,7 @@ const projects = (await getCollection("projects"))
       <div
         class="flex items-center max-w-3xl m-auto flex-wrap overflow-auto"
       >
+      <!-- Skills Badge Table -->
         {
           SBTech.map((tech: BadgeProps) => (
             <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2">

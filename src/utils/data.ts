@@ -19,7 +19,7 @@ const CSTech = [
     },
     {
         name: 'Java',
-        imgSrc: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png',
+        imgSrc: 'https://docs.graderthan.com/images/icons/product/java-dark.svg',
         altSrc: 'Java Logo',
         link: 'https://www.java.com/en/',
     },
@@ -79,38 +79,27 @@ const SBTech = [
         name: 'Networking',
         imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
         altSrc: 'Wireless Networking Symbol',
-        link: '',
     },
     {
         name: 'Automation',
         imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
         altSrc: 'Wireless Networking Symbol',
-        link: '',
     },
     {
         name: 'Security Solutions',
         imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
         altSrc: 'Security Solutions Symbol',
-        link: '',
     },
     {
         name: 'Web Design',
         imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
         altSrc: 'Wireless Networking Symbol',
-        link: '',
     },
     {
-        name: 'Web Design',
+        name: 'Social Media',
         imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
         altSrc: 'Wireless Networking Symbol',
-        link: '',
-    },
-    {
-        name: 'Web Design',
-        imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Wifi.svg/800px-Wifi.svg.png',
-        altSrc: 'Wireless Networking Symbol',
-        link: '',
     },
     
 ]
-export { CSTech, AVTech, SBTech, socials }
+export { CSTech, AVTech, SBTech, }
