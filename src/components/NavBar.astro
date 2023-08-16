@@ -28,6 +28,8 @@ const { display = true } = Astro.props as NavbarProps;
         </li>
       ))
     }
+    <li>
       <ThemeToggle client:load />
+    </li>
   </ul>
 </nav>

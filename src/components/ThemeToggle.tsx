@@ -25,9 +25,11 @@ const ThemeToggle: FunctionalComponent<{}> = () => {
   }, [theme]);
 
   return (
+    <div class="hover:scale-105 ease-in-out transition duration-100 text-lg">
     <button onClick={handleClick} aria-label="Toggle theme">
       {theme === "light" ? "🌙" : "🌞"}
     </button>
+    </div>
   );
 };
 
