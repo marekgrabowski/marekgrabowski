@@ -1,5 +1,5 @@
 ---
-import Icon from "../components/Icon.astro";
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
 
@@ -7,10 +7,11 @@ import { getCollection } from "astro:content";
 import { AVTech, CSTech, SBTech } from "../utils/data";
 import SkillsBadge from "../components/SkillsBadge.astro";
 
+import profilephoto from "../assets/images/profile_photo.jpeg"
 interface BadgeProps {
   name: string;
-  imgSrc: string;
-  altSrc: string;
+  img: string;
+  img_alt: string;
   link?: string;
 }
 const projects = (await getCollection("projects"))
@@ -48,9 +49,12 @@ const projects = (await getCollection("projects"))
           href="./resume"
           class="mx-auto hover:scale-[102%] block drop-shadow-lg hoverImgEffect object-scale-down mb-4"
         >
-          <img
+          <Image
             class="m-1 h-72 aspect-square rounded-2xl"
-            src="images/profile_photo.jpeg"
+            src={profilephoto}
+            alt="Marek Grabowski"
+            width="288"
+            height="288"
           />
         </a>
       </div>
@@ -112,10 +116,8 @@ const projects = (await getCollection("projects"))
         solutions for small local businesses & organizations in the folowing
         areas:
       </p>
-      <div
-        class="flex items-center max-w-3xl m-auto flex-wrap overflow-auto"
-      >
-      <!-- Skills Badge Table -->
+      <div class="flex items-center max-w-3xl m-auto flex-wrap overflow-auto">
+        <!-- Skills Badge Table -->
         {
           SBTech.map((tech: BadgeProps) => (
             <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2">
@@ -137,7 +139,6 @@ const projects = (await getCollection("projects"))
         <ul class="flex flex-row flex-wrap mb-4 justify-center">
           {
             projects.map((projects) => (
-              <>
                 <BlogCard
                   title={projects.data.title}
                   description={projects.data.description}
@@ -146,7 +147,7 @@ const projects = (await getCollection("projects"))
                   img={projects.data.img}
                   img_alt={projects.data.img_alt}
                   tags={projects.data.tags}
-                />
+                /> 
               </>
             ))
           }
