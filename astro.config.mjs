@@ -9,7 +9,7 @@ export default defineConfig({
   markdown: {
     drafts: true
   },
-  integrations: [preact(), tailwind(), compress(), mdx({
+  integrations: [preact({ compat: true }), tailwind(), compress(), mdx({
     drafts: true
   })],
   experimental: {
