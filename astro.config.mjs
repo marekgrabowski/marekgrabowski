@@ -11,8 +11,9 @@ export default defineConfig({
   },
   integrations: [tailwind(), mdx({
     drafts: true
-  }), preact()],
+  })],
   experimental: {
     assets: true
-  }
+   }
+ 
 });
