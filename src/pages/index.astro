@@ -52,8 +52,8 @@ const projects = (await getCollection("projects"))
             class="m-1 h-72 aspect-square rounded-2xl"
             src={profilephoto}
             alt="Marek Grabowski"
-            width="288"
-            height="288"
+            width="432"
+            height="432"
             loading="eager"
           />
         </a>
@@ -135,8 +135,7 @@ const projects = (await getCollection("projects"))
       <p class="mt-4 text-lg my-2">
         Take a look below at some of my recent work
       </p>
-      <div>
-        <ul class="flex flex-row flex-wrap mb-4 justify-center">
+        <div class="flex flex-row flex-wrap mb-4 justify-center">
           {
             projects.map((projects) => (
                 <BlogCard
@@ -151,7 +150,6 @@ const projects = (await getCollection("projects"))
               </>
             ))
           }
-        </ul>
       </div>
     </div>
     <!-- Testing -->
