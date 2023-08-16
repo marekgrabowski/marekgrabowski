@@ -12,7 +12,8 @@ const projects = (await getCollection("projects"))
 ---
 
 <MainLayout title={"Projects"}>
-  <div class="mx-auto max-w-6xl">
+  <section class="relative isolate overflow-hidden">
+  <div class="m-auto max-w-6xl px-6 lg:px-8 my-2">
     <div class="">
       <h1
         class="text-4xl mb-4 font-extrabold text-blue-600"
@@ -23,7 +24,7 @@ const projects = (await getCollection("projects"))
         Here are some of my recent projects over the past few years
       </p>
     </div>
-    <div class="flex flex-row mb-4 justify-center">
+    <div class="flex flex-row flex-wrap mb-4 justify-center">
       {
         projects.map((projects) => (
           <>
@@ -41,4 +42,5 @@ const projects = (await getCollection("projects"))
       }
     </div>
   </div>
+</section>
 </MainLayout>

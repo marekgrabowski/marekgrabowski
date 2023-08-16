@@ -1,5 +1,4 @@
 ---
-import { Image} from "astro:assets";
 import Icon from "./Icon.astro";
 
 interface BadgeProps {
@@ -11,15 +10,15 @@ interface BadgeProps {
 const { name, img, img_alt } = Astro.props as BadgeProps;
 ---
 
-div class="group">
+<div class="group">
   <div
-    class="flex items-center justify-between gap-4 group-hover:scale-105 ease-in-out duration-200 max-w-[200px] m-auto bg-gray-200 rounded-lg drop-shadow-md"
+    class="flex items-center justify-between gap-4 group-hover:scale-105 ease-in-out duration-200 max-w-[200px] m-auto bg-white rounded-lg drop-shadow-md"
   >
     <div class="flex flex-row items-center">
       <div
         class="w-[70px] h-[70px] flex justify-center items-center rounded-full drop-shadow-lg"
       >
-      <Image src={img} alt={img_alt} height="50" width="40" />
+      <img src={img} alt={img_alt} height="50" width="40" />
     </div>
     <h3 class="text-gray-700 font-medium text-sm">{name}</h3>
   </div>

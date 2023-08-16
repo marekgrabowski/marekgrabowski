@@ -2,12 +2,11 @@
 import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
-
-import { getCollection } from "astro:content";
-import { AVTech, CSTech, SBTech } from "../utils/data";
 import SkillsBadge from "../components/SkillsBadge.astro";
-
+import { getCollection } from "astro:content";
 import profilephoto from "../assets/images/profile_photo.jpeg"
+import { AVTech, CSTech, SBTech } from "../utils/data";
+
 interface BadgeProps {
   name: string;
   img: string;
@@ -55,6 +54,7 @@ const projects = (await getCollection("projects"))
             alt="Marek Grabowski"
             width="288"
             height="288"
+            loading="eager"
           />
         </a>
       </div>
