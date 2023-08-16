@@ -31,7 +31,7 @@ const { Content } = await entry.render();
           {
             entry.data.img && (
               <Image
-                class="mx-auto hover:scale-[102%] block drop-shadow-lg hoverImgEffect rounded-xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl max-w-lg"
+                class="mx-auto hover:scale-[102%] block drop-shadow-lg hoverImgEffect rounded-xl lg:max-w-4xl md:max-w-2xl sm:max-w-lg max-w-md"
                 src={entry.data.img}
                 alt={entry.data.img_alt || ""}
                 width="900"
@@ -49,11 +49,11 @@ const { Content } = await entry.render();
               ))
             }
           </h2>
-          <h1 class="my-2 text-center font-bold text-4xl">
+          <h1 class="my-2 text-center font-bold sm:text-4xl text-3xl">
             {entry.data.title}
           </h1>
           <div
-            class="mx-auto prose prose-h2:prose-3xl prose-h2:font-medium prose-lg mt-6 lg:max-w-3xl mb-12 md:max-w-lg max-w-md"
+            class="mx-auto prose prose-h2:prose-3xl prose-h2:font-medium prose-lg mt-6 lg:max-w-3xl mb-12 md:max-w-lg max-w-sm"
           >
             <Content />
           </div>
