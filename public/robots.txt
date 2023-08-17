@@ -1,5 +1,5 @@
 public/robots.txt
 User-agent: *
-Allow: /
+Disallow: /assets/
 
 Sitemap: https:/marekgrabowski.net/sitemap-index.xml
