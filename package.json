@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/image": "^0.17.2",
     "@astrojs/mdx": "^0.19.7",
+    "@astrojs/sitemap": "^2.0.2",
     "astro": "^2.9.7",
     "astro-compress": "^2.0.12",
     "tailwindcss": "^3.3.3"

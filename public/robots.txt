@@ -1,0 +1,5 @@
+public/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https:/marekgrabowski.net/sitemap-index.xml
