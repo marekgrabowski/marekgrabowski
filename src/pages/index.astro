@@ -81,7 +81,7 @@ const projects = (await getCollection("projects"))
         {
           CSTech.map((tech: BadgeProps) => (
             <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2">
-              <a href={tech.link} class="cursor-pointer text-black">
+              <a href={tech.link} target="_blank" rel="noopener noreferrer" class="cursor-pointer text-black">
                 <SkillsBadge {...tech} />
               </a>
             </div>
@@ -101,7 +101,7 @@ const projects = (await getCollection("projects"))
         {
           AVTech.map((tech: BadgeProps) => (
             <div class="md:w-1/3 sm:w-1/2 w-full px-4 py-2">
-              <a href={tech.link} class="cursor-pointer text-black">
+              <a href={tech.link} target="_blank" rel="noopener noreferrer" class="cursor-pointer text-black">
                 <SkillsBadge {...tech} />
               </a>
             </div>

@@ -7,6 +7,8 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import "../../styles/global.css";
 
 import FormattedDate from "../../components/FormattedDate.astro";
+import Icon from "../../components/Icon.astro";
+import Githubrepo from "../../components/Githubrepo";
 
 interface Props {
   entry: CollectionEntry<"projects">;
@@ -21,6 +23,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
 ---
 
 <MainLayout title={entry.data.title} description={entry.data.description}>
@@ -49,11 +52,14 @@ const { Content } = await entry.render();
               ))
             }
           </h2>
-          <h1 class="my-2 text-center font-bold sm:text-4xl text-3xl text-blue-600">
+          <h1
+            class="my-2 text-center font-bold sm:text-4xl text-3xl text-blue-600"
+          >
             {entry.data.title}
           </h1>
+          <Githubrepo githubRepoLink={entry.data.github}/>
           <div
-            class="mx-auto prose prose-h2:prose-3xl prose-h2:font-medium prose-lg mt-6 lg:max-w-3xl mb-12 md:max-w-lg max-w-sm dark:prose-p:text-white dark:prose-headings:text-white dark:prose-a:text-blue-200"
+            class="mx-auto prose prose-h2:prose-3xl prose-h2:font-medium prose-lg lg:max-w-3xl md:max-w-lg max-w-sm dark:prose-p:text-white dark:prose-headings:text-white dark:prose-a:text-blue-200"
           >
             <Content />
           </div>
