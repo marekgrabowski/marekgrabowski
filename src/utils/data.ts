@@ -77,27 +77,27 @@ const AVTech = [
 const SBTech = [
     {
         name: 'Networking',
-        img: '/logos/Wifi.svg',
+        img: '/logos/wifi-high.svg',
         img_alt: 'Wireless Networking Symbol',
     },
     {
         name: 'Automation',
-        img: '/logos/Wifi.svg',
+        img: '/logos/gear-fine.svg',
         img_alt: 'Wireless Networking Symbol',
     },
     {
         name: 'Security Solutions',
-        img: '/logos/Wifi.svg',
+        img: '/logos/fingerprint.svg',
         img_alt: 'Security Solutions Symbol',
     },
     {
         name: 'Web Design',
-        img: '/logos/Wifi.svg',
+        img: '/logos/browser.svg',
         img_alt: 'Wireless Networking Symbol',
     },
     {
         name: 'Social Media',
-        img: '/logos/Wifi.svg',
+        img: '/logos/instagram-logo.svg',
         img_alt: 'Wireless Networking Symbol',
     },
     
