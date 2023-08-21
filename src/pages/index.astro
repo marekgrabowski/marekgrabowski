@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import profilephoto from "../assets/images/profile_photo.jpeg"
 import { AVTech, CSTech, SBTech } from "../utils/data";
 import Icon from "../components/Icon.astro";
+import BlogCardnew from "../components/BlogCardnew.astro";
 
 interface BadgeProps {
   name: string;
@@ -51,7 +52,7 @@ const projects = (await getCollection("projects"))
             class="m-1 h-72 rounded-2xl"
             src={profilephoto}
             alt="Marek Grabowski"
-            width="432"
+            width="432"cd
             height="432"
             loading="eager"
           />
