@@ -1,5 +1,6 @@
 ---
 import { navItems } from "../utils/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 type NavbarProps = {
   display?: boolean;
@@ -20,12 +21,15 @@ const { display = true } = Astro.props as NavbarProps;
         <li>
           <a
             href={navItem.route}
-            class="relative font-medium text-black before:absolute before:-bottom-1 before:h-0.5 before:w-full before:scale-x-0 before:bg-blue-800 before:transition hover:before:scale-x-100"
+            class="relative font-medium text-black dark:text-white before:absolute before:-bottom-1 before:h-0.5 before:w-full before:scale-x-0 before:bg-blue-800 before:transition hover:before:scale-x-100"
           >
             {navItem.text}
           </a>
         </li>
       ))
     }
+    <li>
+      <ThemeToggle client:load />
+    </li>
   </ul>
 </nav>

@@ -2,23 +2,34 @@ import type { FunctionalComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 const ThemeToggle: FunctionalComponent<{}> = () => {
-  const [theme, setTheme] = useState<string>(localStorage.getItem("theme") ?? "light");
+  // Get the initial theme from localStorage or use a default value
+  const initialTheme = localStorage.getItem("theme") || "light";
+  const [theme, setTheme] = useState<string>(initialTheme);
 
   const handleClick = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    // Toggle theme and update localStorage
+    console.log("Toggle clicked");
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
   };
 
+  // Use a consistent class name for the dark theme
   useEffect(() => {
+    console.log("Theme effect:", theme);
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
-    <button onClick={handleClick}>{theme === "light" ? "🌙" : "🌞"}</button>
+    <div class="hover:scale-105 ease-in-out transition duration-100 text-lg">
+    <button onClick={handleClick} aria-label="Toggle theme">
+      {theme === "light" ? "🌙" : "🌞"}
+    </button>
+    </div>
   );
 };
 

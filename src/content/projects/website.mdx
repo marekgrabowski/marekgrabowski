@@ -1,22 +1,37 @@
 ---
 draft: false
-title: Website & EPortfolio
-publishDate: 2023-07-22 00:00:00
+title: Website / E-Portfolio
+publishDate: 2023-08-16 00:00:00
 img: ../../assets/images/website.jpg
 img_alt: Placeholder
 description: |
   This website you're on right now! Made to replace an older
-  templete based webpaged cursed with slow loaded JS & other elements.
+  template based webpage cursed with slow loaded JS & images .
 tags:
   - CS
+github: https://github.com/marekgrabowski/marekgrabowski
 ---
 <div class="h-0" style="visibility:hidden">![Sample Image](../../assets/images/website.jpg)</div>
-At the end of this summer I've been working on replacing my older templete based website, with a new one built from the ground up on AstroJS, a modern all-in-one framework with server-side rendering for incredible speed. I've utlized the built in frontmatter cms for my projects page, and using tailwindcss for styling.
+
+At the end of this summer I've been working on replacing my older template based website, with a new one built from the ground up on AstroJS, a modern all-in-one framework with server-side rendering for incredible speed. Over the past few weeks I've reviewed and grew upon my existing web design and development knowledge and have created a hyper-optimized website with loading times under 1s.
 
 ## Why redo my site?
 
-I decided to redesign my website this summer partailly as prep for a web development class, but also to update and redesign my old website which I've had since high school. I found this the perfect oppertunity to learn some newer technologies and frameworks compared to my old website which was entirely markup, css, and javascript of which most was from a template from HTML5UP. Due to poor optimization on my part this website had become slow with the amount of embeded photos and videos.
+I decided to redesign my website primarily as a personal project as well as prep for a web development class I'll be taking this fall. My old website, which I created during high school, needed a refresh in regards to content and platform. As I added additional content the "1-page" design was flawed with long load times as all assets where loaded when the user visited the home (and only) page. I found this the perfect opportunity to learn some newer frameworks and designing my own site from scratch instead of using a template from HTML5UP.
 
-## What I've learned
+## Deciding on Frameworks
 
-Through the past few weeks, I've developed a level of confornt on creating and deploying websites on the Astro framework on Github Pages. In addition to astro I decided to also utlize Tailwind CSS as I already had a basic understanding of CSS, and wanted to try something new in hopes I would prefer it, which I did. The modular design of astro, both with features, and webpage design made is very easy to make elements once, and utlize them multiple times throughout the website, instead of copy pasting code. I still have some features I want to work on over the next few weeks, such as implementing a website wide dark mode, which also detects the users preference on their device, along side flushing out my projects blog pages, and potentially adding a unrelated personal blog. I may also start experimenting with React and try to implement a cool looking "loading" animation when a user visits the website for the first time in their session.
+When I started researching various frameworks I wanted to adopt something modern, fast, and flexible. I started to take a look online for some front-end frameworks as I wouldn't be needing any backend for this site. Looking at r/webdev I stumbled many individuals recommending Astro. Looking at the site & docs, and other peoples opinions I decided this is the path I wanted to take. I wanted a functional fast website with the ability to post various projects I'm working on. Astro fit the bill, from there I took a look at the various integrations Astro had. As I didn't want to be writing raw css I decided to add TailwindCSS to my project, and later down the line I added Preact, a lightweight alternative to React, for some interactive elements.  
+
+## Building my site
+
+Following the example sites posted on Astros site & github I started building out my webpage. I had a couple of goals. I wanted a home page with a brief overview of who I am and my various skills, a projects page to house information about my various projects, and a htmlifed copy of my resume. I planned to extensively utilize custom components in & collections to keep the site modular. 
+I started with developing a simple navbar and footer components to display on ever page to allow for navigation. From there I started to design my home page. I iterated on a few different styles and layouts before settling for the current one including Badges for my various skills/areas of interest & cards for featured project blog posts. To implement these I used a typescript object array & astro collection respectively.
+From there I reused my card component to create my projects page, and rewrote my resume in markup. Now that I had reached my major goals in regards to layout & content I started to implement some optimizations & additional features.
+First, I implemented a experimental feature of Astro, Assets. This would optimize all images on my site by compressing and changing the format improving performance. While initially having some problems with the requirement to import images before utilizing them especially when it came to the project cards I eventually got everything working. 
+Next up I wanted to implement a dark theme. For this I followed a guide by [Kevin Zuniga Cuellar](https://www.kevinzunigacuellar.com/blog/dark-mode-in-astro/), I enabled the darkMode class in Tailwind, installed pReact, and created a typescript component which I placed in the navbar to allow the user to switch between light/dark themes. From there I implemented a script to enable/disable the "dark" tailwind tag on my html elements. 
+This brings me to the current state of the site. This site is currently being hosted on Github Pages, and is implemented with a Github Action which automatically updates the page whenever the main branch is updated.
+
+## Future Additions
+
+I hope add github repository links for my projects and continue to explore react/preact in order to create a unique stylish loading screen animation when a user first visits my site.
