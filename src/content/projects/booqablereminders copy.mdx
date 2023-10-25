@@ -1,0 +1,25 @@
+---
+draft: false
+title: Automating Rental Businesses Using Booqable
+publishDate: 2023-10-24 00:00:00
+img: ../../assets/images/booqablereminders.jpg
+img_alt: Placeholder
+description: |
+  Cloud deployment of previous concept project.
+tags:
+  - CS
+  - AV
+---
+<div class="h-0" style="visibility:hidden">![Sample Image](../../assets/images/booqablereminders.jpg)</div>
+
+
+I was recently contacted by individuals looking for a similar to the system in [one of my previous posts](./booqablereminders) regarding automating rental workflows utiling a REST API like Booqables.
+
+## Moving to a Cloud Architecture
+As I'm moving on to a new role and out of the rentals business I had decided to rebuild my existing system utilizing a cloud-based architecture. In one of my current courses, Software Engineering I was assigned a project, a co-op with the Hartford, an insruance company, to build a Cloud-based web app on AWS, which I hope to cover in a future post. I utilized this oppertunity to start learning about AWS, particularly Lambda functions in order to prepare for the first Sprint in that project.
+
+## Implementation using Lambda
+AWS Lambda is a serverless event-driven compute service which allows me to execute a set of programs by an event. I did this by creating a Schedule in AWS Event Bridge. This event would fire one a day to check if any emails had to be sent. Utilizing 2 Lambda functions, a scheduler and a notification system utilizing the Google Gmail API with a service account I was able to sort messages distincly for each "company" with their own preset intervals and messages and send notifications.
+
+## Furtherwork
+This is where I've left off on this project, I hope to create some sort of web portal where these companies could log in and tweak all aspects of this automation in the near future, in addition implementing AWS SNS (Simple Notification Service), for emails as a secondary and text messages could be a powerful feature.
