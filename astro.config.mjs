@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
+import preact from '@astrojs/preact';
 import compress from "astro-compress";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
-import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -16,7 +16,6 @@ export default defineConfig({
     drafts: true
   }), sitemap()],
   experimental: {
-    assets: true
   },
   site: 'https://marekgrabowski.net',
 });
